@@ -265,6 +265,11 @@ internal class MainlineVersionCalculator : IMainlineVersionCalculator
             this.log.Info($"Direct commit on main {directCommit} incremented base versions {directCommitIncrement}, now {mainlineVersion}");
         }
 
+        if (directCommit == context.CurrentCommit)
+        {
+            break;
+        }
+
         return mainlineVersion;
     }
 
